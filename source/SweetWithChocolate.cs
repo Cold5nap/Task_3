@@ -14,5 +14,9 @@ namespace Task_3
         {
             _weightOfChocolate = weightOfChocolate;
         }
+        public override String ToString()
+        {
+            return _name + " " + _weight + " " + _weightOfSugar + " " + _weightOfChocolate + " ";
+        }
     }
 }

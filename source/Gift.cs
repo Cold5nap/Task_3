@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Task_3
@@ -27,7 +28,7 @@ namespace Task_3
             string stringGift = string.Empty;
             foreach (Sweet sweet in sweets)
             {
-                stringGift += sweet.sweetToString();
+                stringGift += sweet.ToString();
                 stringGift += "\n";
             }
             return stringGift;
@@ -49,7 +50,7 @@ namespace Task_3
         }
         //Возвращает null, если нет конфет в заданном диапозоне содержания сахара
         //параметры состовляют диапозон [from, to]
-        public Sweet getSweetBySugar(double from,double to)
+        public Sweet findSweetBySugar(double from,double to)
         {
             foreach(Sweet sweet in sweets)
             {
@@ -57,6 +58,38 @@ namespace Task_3
                     return sweet;
             }
             return null;
+        }
+        
+        public void stringToGift(string text)
+        {
+            string[] lines = text.Split('\n');
+            foreach (string line in lines)
+            {
+                sweets.Add(stringLineToSweet(line));
+            }
+        }
+        // преобразует строку в sweet
+        private Sweet stringLineToSweet(string line)
+        {
+            Regex regex = new Regex(@"\w*");
+            MatchCollection matches = regex.Matches(line);
+            List<string> stringSweet = new List<string>();
+            foreach (Match item in matches)
+            {
+                if(item.Value!=string.Empty)
+                    stringSweet.Add(item.Value);
+            }
+            if (stringSweet.Count == 5)
+                if (stringSweet[4].ToLower() == "конфета")
+                    return new Candy(stringSweet[0], int.Parse(stringSweet[1]),
+                        int.Parse(stringSweet[2]), int.Parse(stringSweet[3]));
+                else if (stringSweet[4].ToLower() == "шоколадка")
+                    return new Candy(stringSweet[0], int.Parse(stringSweet[1]),
+                        int.Parse(stringSweet[2]), int.Parse(stringSweet[3]));
+                else
+                    throw new Exception("Такого типа сладости нет");
+            else
+                throw new Exception("Введены неправильные параметры конфеты.");
         }
     }
 }

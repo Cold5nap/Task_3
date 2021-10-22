@@ -20,11 +20,6 @@ namespace Task_3
 
         }
 
-        public String sweetToString()
-        {
-            return _name+" "+ _weight + " " + _weightOfSugar+" ";
-
-        }
-
+        public abstract String ToString();
     }
 }
