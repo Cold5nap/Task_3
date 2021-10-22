@@ -32,12 +32,17 @@ namespace Task_3
             }
         }
 
-        private void ExecuteButton_Click(object sender, EventArgs e)
+        private void CalculateWeight(object sender, EventArgs e)
         {
             Gift gift = new Gift();
             gift.stringToGift(InputRichTextBox.Text);
-            gift.sortSweetsByWeight();
-            OutputRichTextBox.Text = gift.getStringOfGift();
+            WeightGiftTextBox.Text = gift.getWeightOfGift().ToString();
+        }
+
+        private void FindSweet(object sender, EventArgs e)
+        {
+            Gift gift = new Gift();
+            gift.stringToGift(InputRichTextBox.Text);
             int from = int.Parse(FromSugarWeightTextBox.Text);
             int to = int.Parse(ToSugarWeightTextBox.Text);
             Sweet foundSweet = gift.findSweetBySugar(from, to);
@@ -45,8 +50,21 @@ namespace Task_3
                 FindSweetTextBox.Text = "такой конфеты нет";
             else
                 FindSweetTextBox.Text = foundSweet.ToString();
-            WeightGiftTextBox.Text = gift.getWeightOfGift().ToString();
+        }
 
+        private void SortByParamert(object sender, EventArgs e)
+        {
+            Gift gift = new Gift();
+            gift.stringToGift(InputRichTextBox.Text);
+            if (NameCheckBox.Checked)
+                gift.sortSweetsByName();
+            if (WeightCheckBox.Checked)
+                gift.sortSweetsByWeight();
+            if (SugarCheckBox.Checked)
+                gift.sortSweetsBySugar();
+            if (MaterialCheckBox.Checked)
+                gift.sortSweetsByMaterial();
+            OutputRichTextBox.Text = gift.getStringOfGift();
         }
     }
 }

@@ -47,19 +47,25 @@ namespace Task_3
             this.label7 = new System.Windows.Forms.Label();
             this.WeightGiftTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.WeightCheckBox = new System.Windows.Forms.CheckBox();
+            this.SugarCheckBox = new System.Windows.Forms.CheckBox();
+            this.MaterialCheckBox = new System.Windows.Forms.CheckBox();
+            this.NameCheckBox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExecuteButton
             // 
             this.ExecuteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ExecuteButton.Location = new System.Drawing.Point(384, 521);
+            this.ExecuteButton.Location = new System.Drawing.Point(272, 468);
             this.ExecuteButton.Name = "ExecuteButton";
-            this.ExecuteButton.Size = new System.Drawing.Size(155, 43);
+            this.ExecuteButton.Size = new System.Drawing.Size(225, 43);
             this.ExecuteButton.TabIndex = 0;
-            this.ExecuteButton.Text = "Выполнить";
+            this.ExecuteButton.Text = "Посчитать вес";
             this.ExecuteButton.UseVisualStyleBackColor = true;
-            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
+            this.ExecuteButton.Click += new System.EventHandler(this.CalculateWeight);
             // 
             // InputRichTextBox
             // 
@@ -94,7 +100,7 @@ namespace Task_3
             // OutputRichTextBox
             // 
             this.OutputRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OutputRichTextBox.Location = new System.Drawing.Point(506, 147);
+            this.OutputRichTextBox.Location = new System.Drawing.Point(470, 147);
             this.OutputRichTextBox.Name = "OutputRichTextBox";
             this.OutputRichTextBox.Size = new System.Drawing.Size(378, 266);
             this.OutputRichTextBox.TabIndex = 5;
@@ -114,11 +120,11 @@ namespace Task_3
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(501, 119);
+            this.label4.Location = new System.Drawing.Point(465, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(336, 25);
+            this.label4.Size = new System.Drawing.Size(541, 25);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Отсортированный по весу подарок";
+            this.label4.Text = "Отсортированный подарок по следующим параметрам:";
             // 
             // menuStrip1
             // 
@@ -127,7 +133,7 @@ namespace Task_3
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(908, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1136, 36);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,7 +166,7 @@ namespace Task_3
             // FromSugarWeightTextBox
             // 
             this.FromSugarWeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FromSugarWeightTextBox.Location = new System.Drawing.Point(373, 432);
+            this.FromSugarWeightTextBox.Location = new System.Drawing.Point(371, 432);
             this.FromSugarWeightTextBox.Name = "FromSugarWeightTextBox";
             this.FromSugarWeightTextBox.Size = new System.Drawing.Size(52, 30);
             this.FromSugarWeightTextBox.TabIndex = 12;
@@ -170,7 +176,7 @@ namespace Task_3
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(465, 435);
+            this.label6.Location = new System.Drawing.Point(429, 435);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 25);
             this.label6.TabIndex = 13;
@@ -179,25 +185,25 @@ namespace Task_3
             // ToSugarWeightTextBox
             // 
             this.ToSugarWeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToSugarWeightTextBox.Location = new System.Drawing.Point(506, 430);
+            this.ToSugarWeightTextBox.Location = new System.Drawing.Point(470, 432);
             this.ToSugarWeightTextBox.Name = "ToSugarWeightTextBox";
-            this.ToSugarWeightTextBox.Size = new System.Drawing.Size(65, 30);
+            this.ToSugarWeightTextBox.Size = new System.Drawing.Size(59, 30);
             this.ToSugarWeightTextBox.TabIndex = 14;
             this.ToSugarWeightTextBox.Text = "40";
             // 
             // FindSweetTextBox
             // 
             this.FindSweetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FindSweetTextBox.Location = new System.Drawing.Point(593, 432);
+            this.FindSweetTextBox.Location = new System.Drawing.Point(535, 432);
             this.FindSweetTextBox.Name = "FindSweetTextBox";
-            this.FindSweetTextBox.Size = new System.Drawing.Size(291, 30);
+            this.FindSweetTextBox.Size = new System.Drawing.Size(313, 30);
             this.FindSweetTextBox.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(26, 477);
+            this.label7.Location = new System.Drawing.Point(26, 474);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 25);
             this.label7.TabIndex = 16;
@@ -206,9 +212,9 @@ namespace Task_3
             // WeightGiftTextBox
             // 
             this.WeightGiftTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.WeightGiftTextBox.Location = new System.Drawing.Point(192, 474);
+            this.WeightGiftTextBox.Location = new System.Drawing.Point(182, 474);
             this.WeightGiftTextBox.Name = "WeightGiftTextBox";
-            this.WeightGiftTextBox.Size = new System.Drawing.Size(233, 30);
+            this.WeightGiftTextBox.Size = new System.Drawing.Size(84, 30);
             this.WeightGiftTextBox.TabIndex = 17;
             // 
             // label8
@@ -222,11 +228,85 @@ namespace Task_3
             this.label8.Text = "_________________________________________________________________________________" +
     "__________________________________________";
             // 
+            // WeightCheckBox
+            // 
+            this.WeightCheckBox.AutoSize = true;
+            this.WeightCheckBox.Checked = true;
+            this.WeightCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.WeightCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WeightCheckBox.Location = new System.Drawing.Point(854, 184);
+            this.WeightCheckBox.Name = "WeightCheckBox";
+            this.WeightCheckBox.Size = new System.Drawing.Size(76, 29);
+            this.WeightCheckBox.TabIndex = 19;
+            this.WeightCheckBox.Text = "Весу";
+            this.WeightCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SugarCheckBox
+            // 
+            this.SugarCheckBox.AutoSize = true;
+            this.SugarCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SugarCheckBox.Location = new System.Drawing.Point(854, 219);
+            this.SugarCheckBox.Name = "SugarCheckBox";
+            this.SugarCheckBox.Size = new System.Drawing.Size(222, 29);
+            this.SugarCheckBox.TabIndex = 20;
+            this.SugarCheckBox.Text = "Содержанию сахара";
+            this.SugarCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // MaterialCheckBox
+            // 
+            this.MaterialCheckBox.AutoSize = true;
+            this.MaterialCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MaterialCheckBox.Location = new System.Drawing.Point(854, 254);
+            this.MaterialCheckBox.Name = "MaterialCheckBox";
+            this.MaterialCheckBox.Size = new System.Drawing.Size(253, 54);
+            this.MaterialCheckBox.TabIndex = 21;
+            this.MaterialCheckBox.Text = "Содержанию шоколада\r\nили карамели";
+            this.MaterialCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // NameCheckBox
+            // 
+            this.NameCheckBox.AutoSize = true;
+            this.NameCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameCheckBox.Location = new System.Drawing.Point(854, 149);
+            this.NameCheckBox.Name = "NameCheckBox";
+            this.NameCheckBox.Size = new System.Drawing.Size(130, 29);
+            this.NameCheckBox.TabIndex = 22;
+            this.NameCheckBox.Text = "Алфавиту";
+            this.NameCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(854, 348);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 65);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Отсортировать по параметру";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SortByParamert);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(854, 424);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(225, 43);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Найти сладость";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.FindSweet);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 578);
+            this.ClientSize = new System.Drawing.Size(1136, 523);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.NameCheckBox);
+            this.Controls.Add(this.MaterialCheckBox);
+            this.Controls.Add(this.SugarCheckBox);
+            this.Controls.Add(this.WeightCheckBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.WeightGiftTextBox);
             this.Controls.Add(this.label7);
@@ -273,6 +353,12 @@ namespace Task_3
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox WeightGiftTextBox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox WeightCheckBox;
+        private System.Windows.Forms.CheckBox SugarCheckBox;
+        private System.Windows.Forms.CheckBox MaterialCheckBox;
+        private System.Windows.Forms.CheckBox NameCheckBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
